@@ -1,0 +1,25 @@
+<div *ngIf="piloteDetails && piloteDetails.length > 0">
+    <h2>Détails du Pilote</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Nationalité</th>
+          <th>Lien wikipédia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pilote of piloteDetails">
+          <td>{{ pilote.forename }}</td>
+          <td>{{ pilote.surname }}</td> 
+          <td>{{ pilote.nationality }}</td>
+          <td><a [href]="pilote.url" target="_blank">Lien vers le site</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="piloteDetails && piloteDetails.length === 0">
+    <p>Aucun détail de pilote trouvé.</p>
+  </div>
+  

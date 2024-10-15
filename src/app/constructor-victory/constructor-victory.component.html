@@ -1,0 +1,21 @@
+<div *ngIf="constructorVictories && constructorVictories.length > 0">
+    <h2>Victoires par Constructeur</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Constructeur</th>
+          <th>Victoires</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let victory of constructorVictories">
+          <td>{{ victory.name }}</td>
+          <td>{{ victory.wins }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="constructorVictories && constructorVictories.length === 0">
+    <p>Aucune victoire trouvée pour les constructeurs.</p>
+  </div>
+  

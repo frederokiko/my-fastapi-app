@@ -1,0 +1,58 @@
+<!-- <div style="display: block;">
+    <canvas baseChart
+            [datasets]="[{ data: chartData, label: 'Points par année' }]"
+            [labels]="chartLabels"
+            [options]="{ responsive: true }"          
+            [legend]="true"
+            [type]="'bar'"></canvas>
+  </div> -->
+  <div class="driver-form">
+    <h2>Rechercher les points d'un pilote</h2>
+  
+    <!-- Formulaire avec les champs de saisie -->
+    <label for="forename">Prénom :</label>
+    <input type="text" id="forename" [(ngModel)]="forename" placeholder="Entrez le prénom du pilote">
+  
+    <label for="surname">Nom :</label>
+    <input type="text" id="surname" [(ngModel)]="surname" placeholder="Entrez le nom du pilote">
+  
+    <!-- Bouton pour valider la requête (désactivé si les champs ne sont pas remplis) -->
+    <button (click)="getDriverPoints()" [disabled]="!forename || !surname">Valider</button>
+    
+    <!-- Message d'erreur si les champs sont vides -->
+      <a *ngIf="!forename || !surname" class="error" >.......Veuillez entrer le prénom et le nom du pilote avant de valider !</a>
+  </div>
+  <div >
+    <h3 >resultat du pilote :   {{prenom}}  {{nom}}</h3>
+  </div>
+  <div class="my-chart">
+    <canvas baseChart 
+    
+    [type]="'bar'"
+    [data]="barChartData"
+    [options]="barChartOptions">
+  </canvas>
+  </div>
+  
+
+
+  <!-- <div style="display: block;">
+    <canvas baseChart
+            [data]="{ datasets: [{ data: chartData, label: 'Points par année' }], labels: chartLabels }"
+            [options]="{ responsive: true }"
+            [type]="'bar'"
+            >
+    </canvas>
+  </div> -->
+  
+  <!-- <div>
+    <ngx-charts-bar-vertical
+      [scheme]="colorScheme"
+      [results]="chartData"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="true"
+      [showLabels]="true"
+      [yScaleMin]="0">
+    </ngx-charts-bar-vertical>
+  </div> -->

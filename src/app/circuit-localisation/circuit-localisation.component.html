@@ -1,0 +1,141 @@
+<!-- <div class="container" *ngIf="circuitLocations && circuitLocations.length > 0">
+    <h2>Localisation des Circuits</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom du Circuit</th>
+          <th>Pays</th>
+          <th>Lien wikipedia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let circuit of circuitLocations" >
+          <td (click)="onCircuitClick(circuit)" >{{ circuit.name }}</td>
+          <td>{{ circuit.country }}</td>
+          <td><a [href]="circuit.url" target="_blank">Lien vers le site</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="circuitLocations && circuitLocations.length === 0">
+      <p>Aucune localisation de circuit trouvée.</p>
+    </div >
+    
+    <div class="map-container" id="map" >
+  
+    </div>
+
+  </div> -->
+
+
+
+
+
+
+<!-- fonctionne -->
+
+   <!-- <div class="container" *ngIf="circuitLocations && circuitLocations.length > 0">
+    <h2>Localisation des Circuits</h2><br>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom du Circuit</th>
+          <th>Pays</th>
+          <th>Lien wikipedia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let circuit of circuitLocations">
+          <td (click)="onCircuitClick(circuit)">{{ circuit.name }}</td>
+          <td>{{ circuit.country }}</td>
+          <td><a [href]="circuit.url" target="_blank">Lien vers le site</a></td>
+        </tr>
+      </tbody>
+    </table>  -->
+    
+    
+      <!-- Assure-toi que cette div avec id="map" est dédiée à la carte -->
+       <!-- <div class="map-container" id="map"></div>  -->
+    
+  <!-- </div>
+  
+  <div id="map"></div> 
+
+
+ <div>  -->
+
+
+
+
+  <div class="container">
+    <div class="left-column">
+      <h2>Localisation des Circuits</h2>
+      <div class="table-container" *ngIf="circuitLocations && circuitLocations.length > 0">
+        <table>
+          <thead>
+            <tr>
+              <th>Nom du Circuit</th>
+              <th>Pays</th>
+              <th>Lien wikipedia</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let circuit of circuitLocations">
+              <td (click)="onCircuitClick(circuit)">{{ circuit.name }}</td>
+              <td>{{ circuit.country }}</td>
+              <td><a [href]="circuit.url" target="_blank">Lien vers le site</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="right-column">
+      <div id="map"></div>
+    </div>
+  </div>
+
+
+
+
+
+<!-- <div *ngIf="!showMap; else mapTemplate"> -->
+  <!-- Liste des circuits -->
+  <!-- <h2>Liste des Circuits</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nom du Circuit</th>
+        <th>Pays</th>
+        <th>Lien Wikipedia</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let circuit of circuitLocations" (click)="onCircuitClick(circuit)">
+        <td>{{ circuit.name }}</td>
+        <td>{{ circuit.country }}</td>
+        <td><a [href]="circuit.url" target="_blank">Lien</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+  Ajout d'une carte non plein écran
+  <!-- <div class="map-container">
+    <div id="map" class="map"></div> 
+  </div> -->
+
+
+<!-- Template pour afficher la carte en plein écran 
+ <ng-template #mapTemplate>
+  <div class="map-fullscreen">
+   
+    <button class="back-button" (click)="backToList()">Retour à la liste</button>
+   
+    <div id="map" class="map"></div> 
+  </div>
+</ng-template> -->
+<!-- <div>
+  <button class="back-button" (click)="backToList()">Retour à la liste</button>
+  <div id="map" class="map"></div>
+
+</div> -->
+  
+

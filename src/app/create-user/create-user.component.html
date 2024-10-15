@@ -1,0 +1,26 @@
+<div class="create-user-container">
+    <h2>Create User</h2>
+    <form (ngSubmit)="createUser()">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" [(ngModel)]="username" name="username" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" [(ngModel)]="password" name="password" required>
+      </div>
+      <div>
+        <label for="password">Confirm password :</label>
+        <input type="password" [(ngModel)]="password1" name="password1" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" [(ngModel)]="email" name="email" required>
+      </div>
+      <button type="submit">Create User</button>
+    </form>
+  
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  </div>
+  

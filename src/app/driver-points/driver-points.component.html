@@ -1,0 +1,42 @@
+<div class="driver-form">
+  <h2>Rechercher les points d'un pilote</h2>
+
+  <!-- Formulaire avec les champs de saisie -->
+  <label for="forename">Prénom :</label>
+  <input type="text" id="forename" [(ngModel)]="forename" placeholder="Entrez le prénom du pilote">
+
+  <label for="surname">Nom :</label>
+  <input type="text" id="surname" [(ngModel)]="surname" placeholder="Entrez le nom du pilote">
+
+  <!-- Bouton pour valider la requête (désactivé si les champs ne sont pas remplis) -->
+  <button (click)="fetchDriverPoints()" [disabled]="!forename || !surname">Valider</button>
+  
+  <!-- Message d'erreur si les champs sont vides -->
+  <div *ngIf="!forename || !surname" class="error">
+    <p>Veuillez entrer le prénom et le nom du pilote avant de valider.</p>
+  </div>
+</div>
+
+<!-- Affichage des résultats sous forme de tableau -->
+<div *ngIf="pointsData.length > 0">
+  <h3>Points pour {{ forename }} {{ surname }}</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Année</th>
+        <th>Total Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let point of pointsData">
+        <td>{{ point.year }}</td>
+        <td>{{ point.total_points }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Message si aucune donnée n'est trouvée -->
+<div *ngIf="pointsData.length === 0 && forename && surname">
+  <p>Aucune donnée trouvée pour {{ forename }} {{ surname }}.</p>
+</div>

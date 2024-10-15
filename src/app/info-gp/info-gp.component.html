@@ -1,0 +1,22 @@
+<div *ngIf="gpDetails && gpDetails.length > 0">
+    <h2>Informations des Grands Prix</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Année</th>
+          <th>Lien wikipedia</th>
+    
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gp of gpDetails">
+          <td>{{ gp.year }}</td>
+          <td><a [href]="gp.url" target="_blank">Lien vers le site</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="gpDetails && gpDetails.length === 0">
+    <p>Aucune information de GP trouvée.</p>
+  </div>
+  

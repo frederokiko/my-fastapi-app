@@ -1,0 +1,23 @@
+<div *ngIf="circuits && circuits.length > 0">
+    <h2>Nombre de Courses par Circuit</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom du Circuit</th>
+          <th>Pays</th>
+          <th>Nombre de Courses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let circuit of circuits">
+          <td>{{ circuit.name }}</td>
+          <td>{{ circuit.country }}</td>
+          <td>{{ circuit.race_count }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="circuits && circuits.length === 0">
+    <p>Aucun circuit trouvé.</p>
+  </div>
+  

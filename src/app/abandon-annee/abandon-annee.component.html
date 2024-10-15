@@ -1,0 +1,23 @@
+<div *ngIf="abandonAnnee && abandonAnnee.length > 0">
+    <h2>Abandons par Année</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Année</th>
+          <th>Total des Abandons</th>
+          <th>Pourcentage des Abandons (%)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let abandon of abandonAnnee">
+          <td>{{ abandon.year }}</td>
+          <td>{{ abandon.total_retirements }}</td>
+          <td>{{ abandon.retirement_percentage | number:'1.2-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="abandonAnnee && abandonAnnee.length === 0">
+    <p>Aucun abandon trouvé pour cette période.</p>
+  </div>
+  

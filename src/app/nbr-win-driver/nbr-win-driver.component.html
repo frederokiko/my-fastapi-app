@@ -1,0 +1,23 @@
+<div *ngIf="driverWins && driverWins.length > 0">
+    <h2>Victoires par Pilote</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Victoires</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let win of driverWins">
+          <td>{{ win.forename }}</td>
+          <td>{{ win.surname }}</td>
+          <td>{{ win.victories }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="driverWins && driverWins.length === 0">
+    <p>Aucune victoire trouvée pour les pilotes.</p>
+  </div>
+  

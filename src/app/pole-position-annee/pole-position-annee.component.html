@@ -1,0 +1,23 @@
+<div *ngIf="polePositions && polePositions.length > 0">
+    <h2>Pole Positions par Pilote</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Prénom</th>
+          <th>Nom</th>
+          <th>Nombre de Pole Positions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pole of polePositions">
+          <td>{{ pole.forename }}</td>
+          <td>{{ pole.surname }}</td>
+          <td>{{ pole.pole_positions }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="polePositions && polePositions.length === 0">
+    <p>Aucune pole position trouvée.</p>
+  </div>
+  

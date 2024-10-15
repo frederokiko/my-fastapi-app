@@ -1,0 +1,23 @@
+<div *ngIf="constructorDetails && constructorDetails.length > 0">
+    <h2>Détails du Constructeur</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Nationalité</th>
+          <th>Lien wikipedia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let constructor of constructorDetails">
+          <td>{{ constructor.name }}</td>
+          <td>{{ constructor.nationality }}</td>
+          <td><a [href]="constructor.url" target="_blank">Lien vers le site</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="constructorDetails && constructorDetails.length === 0">
+    <p>Aucun détail de constructeur trouvé.</p>
+  </div>
+  

@@ -1,0 +1,5 @@
+<div class="connection-status">
+    <span  class="status-dot" [ngClass]="{ 'connected': isConnected, 'disconnected': !isConnected }"></span>
+  {{ isConnected ? 'Connecté' : 'Non connecté' }}
+</div>
+  

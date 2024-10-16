@@ -1,4 +1,4 @@
-<div class="login-container">
+<!-- <div class="login-container">
     <h2>Login</h2>
     <form (ngSubmit)="login()">
       <div>
@@ -13,12 +13,25 @@
     </form>
     <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
     <div *ngIf="test">
-      <!-- <h3>Access Token: {{ token }}</h3> -->
+    
        <h3>Tu es connecté !</h3>
        <button (click)="logout()">Deconnexion</button>
       <button (click)="protectedRoute()">Access Protected Route</button>
     </div>
-  </div>
+  </div> -->
+<div class="login-container">
+  <!-- <app-connection-status class="connect" ></app-connection-status> -->
+<div *ngIf="!isConnected">
+  <input [(ngModel)]="username" placeholder="Username">
+  <input [(ngModel)]="password" type="password" placeholder="Password">
+  <button (click)="login()">Login</button>
+</div>
 
-  
+<div *ngIf="isConnected">
+  <button (click)="logout()">Logout</button>
+</div>
+
+<p *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>
+
   

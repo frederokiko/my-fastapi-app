@@ -1,0 +1,52 @@
+<p>detail-annee works!</p>
+<div class="driver-form">
+    <h2>Rechercher les points d'un pilote</h2>
+  
+    <!-- Formulaire avec les champs de saisie -->
+    <label for="year">Année :</label>
+    <input type="number" id="year" [(ngModel)]="year" placeholder="Entrez l'année de la saison'">
+  
+    <label for="rank">Position :</label>
+    <input type="number" id="rank" [(ngModel)]="rank" placeholder="Entrez la position souhaitée">
+  
+    <!-- Bouton pour valider la requête (désactivé si les champs ne sont pas remplis) -->
+    <button (click)="getResult_Points()" [disabled]="!year || !rank">Valider</button>
+    
+    <!-- Message d'erreur si les champs sont vides -->
+    <div *ngIf="!year || !rank" class="error">
+      <p>Veuillez entrer l'année et la position du pilote.</p>
+    </div>
+  </div>
+  
+  <!-- Affichage des résultats sous forme de tableau -->
+  <div *ngIf="pointsData.length > 0">
+    <h3>Resultat pour l'année {{ year }} et la position : {{ rank }}</h3>
+    <h3>Il y à eu cette année la {{ pointsData.length }} grand-prix</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Date du grand prix</th>
+          <th>Pays</th>
+          <th>Circuit</th>
+          <th>Prenom</th>
+          <th>Nom</th>
+          <th>Position</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let point of pointsData">
+          <td>{{ point.date }}</td>
+          <td>{{ point.country }}</td>
+          <td>{{ point.name }}</td>
+          <td>{{ point.forename }}</td>
+          <td>{{ point.surname }}</td>
+          <td>{{ point.rank }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Message si aucune donnée n'est trouvée -->
+  <div *ngIf="pointsData.length === 0 && year && rank">
+    <p>Aucune donnée trouvée pour {{ year }} {{ rank }}.</p>
+  </div>

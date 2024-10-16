@@ -1,57 +1,14 @@
 
-<!-- <div class="background-image"></div>
-<div class="navbar">
-  <a routerLink="/login" routerLinkActive="active">Login</a>
-  <a routerLink="/create-user" routerLinkActive="active">Create User</a>
-</div>
-<nav>
-  <ul>
-    <li><a routerLink="/driver-points">Points des pilotes</a></li>
-    <li><a routerLink="/abandon-annee">Abandons par année</a></li>
-    <li><a routerLink="/pole-position-annee">Pole position par année</a></li>
-    <li><a routerLink="/constructor-victory">Victoires des constructeurs</a></li>
-    <li><a routerLink="/nbr-course-circuit">Nombres de courses effecuées sur les circuits</a></li>
-    <li><a routerLink="/nbr-win-driver">Nombres de victoires par pilotes</a></li>
-    <li><a routerLink="/circuit-localisation">Localisation des circuits</a></li>
-    <li><a routerLink="/detail-pilote">Details des pilotes</a></li>
-    <li><a routerLink="/detail-constructor">Details des constructeurs</a></li>
-    <li><a routerLink="/info-gp">Inforations grand-prix</a></li>
-    <li><a routerLink="/driver-points-chart">Graphique de points du pilote</a></li>
-  </ul>
-</nav> -->
-
-<!-- <div class="content">
-  <div class="background-image"></div>
-  <div class="navbar">
-    <a routerLink="/login" routerLinkActive="active">Login</a>
-    <a routerLink="/create-user" routerLinkActive="active">Create User</a>
-  </div>
-  <nav>
-    <ul>
-      <li><a routerLink="/driver-points">Points des pilotes</a></li>
-      <li><a routerLink="/abandon-annee">Abandons par année</a></li>
-      <li><a routerLink="/pole-position-annee">Pole position par année</a></li>
-      <li><a routerLink="/constructor-victory">Victoires des constructeurs</a></li>
-      <li><a routerLink="/nbr-course-circuit">Nombres de courses effecuées sur les circuits</a></li>
-      <li><a routerLink="/nbr-win-driver">Nombres de victoires par pilotes</a></li>
-      <li><a routerLink="/circuit-localisation">Localisation des circuits</a></li>
-      <li><a routerLink="/detail-pilote">Details des pilotes</a></li>
-      <li><a routerLink="/detail-constructor">Details des constructeurs</a></li>
-      <li><a routerLink="/info-gp">Inforations grand-prix</a></li>
-      <li><a routerLink="/driver-points-chart">Graphique de points du pilote</a></li>
-    </ul>
-  </nav>
-
-  <router-outlet></router-outlet>
-  <app-footer></app-footer>
-</div> -->
 <div class="background-image"></div> <!-- Image de fond doit être en dehors du contenu -->
 <div class="content">
   <div class="navbar">
-    <a routerLink="/login" routerLinkActive="active">Login</a>
-    <a routerLink="/create-user" routerLinkActive="active">Create User</a>
+    <a  *ngIf="!isConnected" routerLink="/login" routerLinkActive="active">Login</a>
+    <a  *ngIf="isConnected" routerLink="/login" routerLinkActive="active">Deconnexion</a>
+    <a *ngIf="!isConnected" routerLink="/create-user" routerLinkActive="active">Créer un nouveau compte</a>
+    <app-connection-status class="connect" ></app-connection-status>
+    
   </div>
-  <nav>
+  <nav *ngIf="isConnected">
     <ul>
       <li><a routerLink="/driver-points">Points des pilotes</a></li>
       <li><a routerLink="/abandon-annee">Abandons par année</a></li>
@@ -64,8 +21,10 @@
       <li><a routerLink="/detail-constructor">Détails des constructeurs</a></li>
       <li><a routerLink="/info-gp">Informations grand-prix</a></li>
       <li><a routerLink="/driver-points-chart">Graphique de points du pilote</a></li>
+      <li><a routerLink="/detail-annee">details de l'année</a></li>
     </ul>
   </nav>
+  <h2 *ngIf="!isConnected">❗ Connecte-toi ou crée un nouveau compte pour avoir accès au contenu de ce site ❗</h2>
 
   <router-outlet></router-outlet>
   <app-footer></app-footer>

@@ -14,7 +14,33 @@
       color: #0056b3;
       border-bottom: 2px solid #0056b3;
     }
-  }
+// app-connection-status {
+//  margin-left: auto;
+//   }
+}
+.connect{
+  text-align: right;
+}
+// .navbar {
+//   display: flex;
+//   align-items: center;
+//   padding: 10px;
+//   background-color: #f0f0f0;
+// }
+
+// .navbar a {
+//   margin-right: 15px;
+//   text-decoration: none;
+//   color: #333;
+// }
+
+// .navbar a.active {
+//   font-weight: bold;
+// }
+
+// app-connection-status {
+//   margin-left: auto;
+// }
   
   /* Applique l'image de fond à toute la page */
 html, body {
@@ -35,9 +61,11 @@ html, body {
   background-attachment: fixed;
   filter: blur(1px);
   z-index: -1;
-  background-color: red; /* Couleur de fond temporaire */
+  // background-color: red; /* Couleur de fond temporaire */
 }
-
+h2{
+  text-align: center;
+}
 
 // .background-image {
 //   position: fixed; /* L'image de fond reste fixe et couvre tout l'écran */

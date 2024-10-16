@@ -22,6 +22,9 @@ import { BaseChartDirective } from 'ng2-charts';
 //import { NgChartsModule } from 'ng2-charts';
 import { Chart, registerables } from 'chart.js';
 import { FooterComponent } from './footer/footer.component';
+import { ConnectionStatusComponent } from './connection-status/connection-status.component';
+import { AuthService } from './auth.service';
+import { DetailAnneeComponent } from './detail-annee/detail-annee.component';
 Chart.register(...registerables);
 
 
@@ -41,7 +44,10 @@ Chart.register(...registerables);
     DetailConstructorComponent,
     DriverPointsChartComponent,
     InfoGPComponent,
-    FooterComponent
+    FooterComponent,
+    ConnectionStatusComponent,
+    DetailAnneeComponent
+
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,7 @@ Chart.register(...registerables);
     //NgChartsModule
     BaseChartDirective
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(),AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

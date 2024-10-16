@@ -93,5 +93,11 @@ export class ApiService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${this.apiUrl}/info_gp`, { headers });
   }
+  getResult_Year(year: number, rank: number, token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const body = { year, rank };  // Passer les noms dans le body
+
+    return this.http.post(`${this.apiUrl}/result_year`, body, { headers });
+  }
 
 }

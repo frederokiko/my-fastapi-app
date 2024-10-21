@@ -14,6 +14,7 @@ import { DetailConstructorComponent } from './detail-constructor/detail-construc
 import { InfoGPComponent } from './info-gp/info-gp.component';
 import { DriverPointsChartComponent } from './driver-points-chart/driver-points-chart.component';
 import { DetailAnneeComponent } from './detail-annee/detail-annee.component';
+import { DetailConstructeurPiloteComponent } from './detail-constructeur-pilote/detail-constructeur-pilote.component';
 
 const routes: Routes = [
   { path: 'create-user', component: CreateUserComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path:'info-gp',component:InfoGPComponent},
   {path:'driver-points-chart',component:DriverPointsChartComponent},
   {path:'detail-annee',component:DetailAnneeComponent},
+  {path:'detail-constructeur-pilote',component:DetailConstructeurPiloteComponent},
   { path: '', redirectTo: '/login', pathMatch: 'full' }  // Redirection par défaut vers login
 ];
 

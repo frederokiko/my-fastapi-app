@@ -1,0 +1,69 @@
+<!-- <div class="driver-form">
+    <h2>Rechercher les pilotes par écurie</h2>
+    <label for="constru">Nom de l'écurie :</label>
+    <input type="text" id="year" [(ngModel)]="constru" placeholder="Nom de l'écurie">
+    <button (click)="getResult_Constru_pilot()" [disabled]="!constru" >Valider</button>
+    <div *ngIf="!constru" class="error">
+      <p>Veuillez entrer l'année et la position du pilote.</p>
+    </div>
+  </div> -->
+
+
+  <!-- test -->
+
+  <div class="container">
+    <div class="constructor-lists">
+      <!-- A-F -->
+      <!-- <div class="list-group"> -->
+        <h3>A-F</h3>
+        <select [(ngModel)]="constru" (change)="getResult_Constru_pilot()">
+          <option value="">Sélectionnez un constructeur</option>
+          <option *ngFor="let c of constructorsAF" [value]="c.name">
+            {{c.name}}
+          </option>
+        </select>
+      <!-- </div> -->
+  
+      <!-- G-L -->
+      <!-- <div class="list-group"> -->
+        <h3>G-L</h3>
+        <select [(ngModel)]="constru" (change)="getResult_Constru_pilot()">
+          <option value="">Sélectionnez un constructeur</option>
+          <option *ngFor="let c of constructorsGL" [value]="c.name">
+            {{c.name}}
+          </option>
+        </select>
+      <!-- </div> -->
+  
+      <!-- M-R -->
+      <!-- <div class="list-group"> -->
+        <h3>M-R</h3>
+        <select [(ngModel)]="constru" (change)="getResult_Constru_pilot()">
+          <option value="">Sélectionnez un constructeur</option>
+          <option *ngFor="let c of constructorsMR" [value]="c.name">
+            {{c.name}}
+          </option>
+        </select>
+      <!-- </div> -->
+  
+      <!-- S-Z -->
+      <!-- <div class="list-group"> -->
+        <h3>S-Z</h3>
+        <select [(ngModel)]="constru" (change)="getResult_Constru_pilot()">
+          <option value="">Sélectionnez un constructeur</option>
+          <option *ngFor="let c of constructorsSZ" [value]="c.name">
+            {{c.name}}
+          </option>
+        </select>
+      <!-- </div> -->
+    </div>
+  
+    <!-- Affichage des résultats -->
+    <div class="results" *ngIf="pointsData.length > 0">
+      <h3>Résultats pour {{constru}} == {{total}} résultats</h3>
+      <div *ngFor="let point of pointsData">
+        <!-- Affichez ici les détails des pilotes selon votre structure de données -->
+        <p>Prenom : {{point.forname}} - Nom : {{point.surname}} - Saisons: {{point.annee}} - Début :{{point.debut}} - Fin : {{point.fin}} - Total de Gp : {{point.nbr_gp}}</p>
+      </div>
+    </div>
+  </div>

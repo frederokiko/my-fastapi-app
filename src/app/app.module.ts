@@ -25,6 +25,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ConnectionStatusComponent } from './connection-status/connection-status.component';
 import { AuthService } from './auth.service';
 import { DetailAnneeComponent } from './detail-annee/detail-annee.component';
+import { DetailConstructeurPiloteComponent } from './detail-constructeur-pilote/detail-constructeur-pilote.component';
 Chart.register(...registerables);
 
 
@@ -46,7 +47,8 @@ Chart.register(...registerables);
     InfoGPComponent,
     FooterComponent,
     ConnectionStatusComponent,
-    DetailAnneeComponent
+    DetailAnneeComponent,
+    DetailConstructeurPiloteComponent
 
   ],
   imports: [

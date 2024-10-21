@@ -99,5 +99,14 @@ export class ApiService {
 
     return this.http.post(`${this.apiUrl}/result_year`, body, { headers });
   }
+  getToutConstru(token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get(`${this.apiUrl}/tout_constructeur`, { headers });
+  }
+  getResult_pilote_constructeur(constru: string, token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    const body = { constru };  // Passer le nom dans le body
+    return this.http.post(`${this.apiUrl}/result_pilote_constructeur`, body, { headers });
+  }
 
 }

@@ -13,8 +13,7 @@
 
   <div class="container">
     <div class="constructor-lists">
-      <!-- A-F -->
-      <!-- <div class="list-group"> -->
+      <div class="constructor-group">
         <h3>A-F</h3>
         <select [(ngModel)]="constru" (change)="getResult_Constru_pilot()">
           <option value="">Sélectionnez un constructeur</option>
@@ -22,10 +21,9 @@
             {{c.name}}
           </option>
         </select>
-      <!-- </div> -->
-  
-      <!-- G-L -->
-      <!-- <div class="list-group"> -->
+      </div>
+    
+      <div class="constructor-group">
         <h3>G-L</h3>
         <select [(ngModel)]="constru" (change)="getResult_Constru_pilot()">
           <option value="">Sélectionnez un constructeur</option>
@@ -33,10 +31,9 @@
             {{c.name}}
           </option>
         </select>
-      <!-- </div> -->
-  
-      <!-- M-R -->
-      <!-- <div class="list-group"> -->
+      </div>
+    
+      <div class="constructor-group">
         <h3>M-R</h3>
         <select [(ngModel)]="constru" (change)="getResult_Constru_pilot()">
           <option value="">Sélectionnez un constructeur</option>
@@ -44,10 +41,9 @@
             {{c.name}}
           </option>
         </select>
-      <!-- </div> -->
-  
-      <!-- S-Z -->
-      <!-- <div class="list-group"> -->
+      </div>
+    
+      <div class="constructor-group">
         <h3>S-Z</h3>
         <select [(ngModel)]="constru" (change)="getResult_Constru_pilot()">
           <option value="">Sélectionnez un constructeur</option>
@@ -55,12 +51,16 @@
             {{c.name}}
           </option>
         </select>
-      <!-- </div> -->
+      </div>
     </div>
   
     <!-- Affichage des résultats -->
     <div class="results" *ngIf="pointsData.length > 0">
-      <h3>Résultats pour {{constru}} == {{total}} résultats</h3>
+      <!-- <h3 *ngIf="pointsData.length>1">Résultats pour {{constru}} de {{minimum_date}} à {{maximum_date}}==> {{total}} pilotes ont été trouvé </h3> -->
+      <h3>
+        Résultats pour {{constru}} de {{minimum_date}} à {{maximum_date}} 
+        ==> {{total}} pilote{{total > 1 ? 's ont' : ' a'}} été trouvé{{total > 1 ? 's' : ''}}
+      </h3>
       <div *ngFor="let point of pointsData">
         <!-- Affichez ici les détails des pilotes selon votre structure de données -->
         <p>Prenom : {{point.forname}} - Nom : {{point.surname}} - Saisons: {{point.annee}} - Début :{{point.debut}} - Fin : {{point.fin}} - Total de Gp : {{point.nbr_gp}}</p>

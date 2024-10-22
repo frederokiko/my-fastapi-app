@@ -61,6 +61,7 @@ interface Constructor {
   // autres propriétés si nécessaire
 }
 
+
 @Component({
   selector: 'app-detail-constructeur-pilote',
   templateUrl: './detail-constructeur-pilote.component.html',
@@ -71,13 +72,18 @@ export class DetailConstructeurPiloteComponent {
   pointsData: any[] = [];
   pointsDataConstru: any[] = [];
   token = '';
-  total : number |undefined;
+  // total : number |undefined;
 
   // Listes filtrées par plage alphabétique
   constructorsAF: Constructor[] = [];
   constructorsGL: Constructor[] = [];
   constructorsMR: Constructor[] = [];
   constructorsSZ: Constructor[] = [];
+
+  minimum_date : number|undefined;
+  maximum_date : number|undefined;
+  total: number = 0;
+  // point_min : number|undefined;
 
   constructor(private apiService: ApiService) {}
 
@@ -95,7 +101,34 @@ export class DetailConstructeurPiloteComponent {
       });
     }
   }
+//  getmMinEtMaxDate(){
+//   this.minimum_date=this.pointsData.filter(c=>
+//     c.debut.min()
+//   );
+//   this.maximum_date=this.pointsData.filter(c=>
+//     c.fin.max()
+//   );
+//   console.log(this.minimum_date[0],this.maximum_date[0],)
+//  }
+getMinEtMaxDate() {
+  // Obtenir directement le minimum des timestamps de début
+  this.minimum_date = Math.min(
+    ...this.pointsData.map(point => point.debut)
+  );
 
+  // Obtenir directement le maximum des timestamps de fin
+  this.maximum_date = Math.max(
+    ...this.pointsData.map(point => point.fin)
+  );
+
+  console.log('Date minimum:', this.minimum_date);
+  console.log('Date maximum:', this.maximum_date);
+  
+  return {
+    minimum_date: this.minimum_date,
+    maximum_date: this.maximum_date
+  };
+}
   filterConstructors() {
     this.constructorsAF = this.pointsDataConstru.filter(c => 
       c.name.charAt(0).toUpperCase() >= 'A' && c.name.charAt(0).toUpperCase() <= 'F'
@@ -123,6 +156,8 @@ export class DetailConstructeurPiloteComponent {
           this.pointsData = response.data;
           console.log(this.pointsData);
           this.total=this.pointsData.length;
+          
+          this.getMinEtMaxDate();
         },
         error: (error) => {
           console.error('Error fetching result:', error);

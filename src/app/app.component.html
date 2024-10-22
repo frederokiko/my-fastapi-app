@@ -8,23 +8,31 @@
     <app-connection-status class="connect" ></app-connection-status>
     
   </div>
-  <nav *ngIf="isConnected">
-    <ul>
-      <li><a routerLink="/driver-points">Points des pilotes</a></li>
-      <li><a routerLink="/abandon-annee">Abandons par année</a></li>
-      <li><a routerLink="/pole-position-annee">Pole position par année</a></li>
-      <li><a routerLink="/constructor-victory">Victoires des constructeurs</a></li>
-      <li><a routerLink="/nbr-course-circuit">Nombres de courses effectuées sur les circuits</a></li>
-      <li><a routerLink="/nbr-win-driver">Nombres de victoires par pilotes</a></li>
-      <li><a routerLink="/circuit-localisation">Localisation des circuits</a></li>
-      <li><a routerLink="/detail-pilote">Détails des pilotes</a></li>
-      <li><a routerLink="/detail-constructor">Détails des constructeurs</a></li>
-      <li><a routerLink="/info-gp">Informations grand-prix</a></li>
-      <li><a routerLink="/driver-points-chart">Graphique de points du pilote</a></li>
-      <li><a routerLink="/detail-annee">details de l'année</a></li>
-      <li><a routerLink="/detail-constructeur-pilote">details des pilotes par constructeur</a></li>
-    </ul>
-  </nav>
+
+  <div class="dropdown" *ngIf="isConnected" #dropdownMenu>
+    <button class="dropdown-btn" (click)="toggleMenu($event)">
+      Menu Navigation 
+      <span class="arrow" [class.rotate]="isMenuOpen">▼</span>
+    </button>
+    
+    <nav class="dropdown-content" [class.show]="isMenuOpen">
+      <ul>
+        <li><a routerLink="/driver-points" (click)="closeMenu()">Points des pilotes</a></li>
+        <li><a routerLink="/abandon-annee" (click)="closeMenu()">Abandons par année</a></li>
+        <li><a routerLink="/pole-position-annee" (click)="closeMenu()">Pole position par année</a></li>
+        <li><a routerLink="/constructor-victory" (click)="closeMenu()">Victoires des constructeurs</a></li>
+        <li><a routerLink="/nbr-course-circuit" (click)="closeMenu()">Nombres de courses effectuées sur les circuits</a></li>
+        <li><a routerLink="/nbr-win-driver" (click)="closeMenu()">Nombres de victoires par pilotes</a></li>
+        <li><a routerLink="/circuit-localisation" (click)="closeMenu()">Localisation des circuits</a></li>
+        <li><a routerLink="/detail-pilote" (click)="closeMenu()">Détails des pilotes</a></li>
+        <li><a routerLink="/detail-constructor" (click)="closeMenu()">Détails des constructeurs</a></li>
+        <li><a routerLink="/info-gp" (click)="closeMenu()">Informations grand-prix</a></li>
+        <li><a routerLink="/driver-points-chart" (click)="closeMenu()">Graphique de points du pilote</a></li>
+        <li><a routerLink="/detail-annee" (click)="closeMenu()">Details de l'année</a></li>
+        <li><a routerLink="/detail-constructeur-pilote" (click)="closeMenu()">Details des pilotes par constructeur</a></li>
+      </ul>
+    </nav>
+  </div>
   <h2 *ngIf="!isConnected">❗ Connecte-toi ou crée un nouveau compte pour avoir accès au contenu de ce site ❗</h2>
 
   <router-outlet></router-outlet>

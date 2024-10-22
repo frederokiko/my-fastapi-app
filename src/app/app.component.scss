@@ -14,33 +14,12 @@
       color: #0056b3;
       border-bottom: 2px solid #0056b3;
     }
-// app-connection-status {
-//  margin-left: auto;
-//   }
+
 }
 .connect{
   text-align: right;
 }
-// .navbar {
-//   display: flex;
-//   align-items: center;
-//   padding: 10px;
-//   background-color: #f0f0f0;
-// }
 
-// .navbar a {
-//   margin-right: 15px;
-//   text-decoration: none;
-//   color: #333;
-// }
-
-// .navbar a.active {
-//   font-weight: bold;
-// }
-
-// app-connection-status {
-//   margin-left: auto;
-// }
   
   /* Applique l'image de fond à toute la page */
 html, body {
@@ -67,22 +46,6 @@ h2{
   text-align: center;
 }
 
-// .background-image {
-//   position: fixed; /* L'image de fond reste fixe et couvre tout l'écran */
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-image: url ('assets\background.jpg'); /* Chemin de l'image */
-//   // background-image: url('app/assets/background.jpg');
-//   background-size: cover; /* Couvre tout l'écran */
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-attachment: fixed; /* L'image reste fixe au scroll */
-//   filter: blur(1px); /* Applique un flou à l'image */
-//   z-index: -1; /* Met l'image en arrière-plan */
-// }
-
 .content {
   position: relative; /* Pour que le contenu soit au-dessus de l'image */
   z-index: 1;
@@ -90,4 +53,106 @@ h2{
   background-color: rgba(255, 255, 255, 0.8); /* Transparence pour voir un peu le fond */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre pour une meilleure lisibilité du contenu */
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: Arial, sans-serif;
+}
+
+.dropdown-btn {
+  padding: 12px 24px;
+  background: linear-gradient(145deg, #e31e24, #cc1b20);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.dropdown-btn:hover {
+  background: linear-gradient(145deg, #cc1b20, #b81821);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.arrow.rotate {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  background-color: white;
+  min-width: 320px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  z-index: 1000;
+  border-radius: 8px;
+  max-height: 500px;
+  overflow-y: auto;
+  top: calc(100% + 8px);
+  left: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown-content.show {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-content ul {
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+}
+
+.dropdown-content li {
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 24px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #f8f9fa;
+  color: #e31e24;
+  padding-left: 28px;
+}
+
+/* Personnalisation de la barre de défilement */
+.dropdown-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

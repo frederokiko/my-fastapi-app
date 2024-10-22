@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -22,4 +22,23 @@ export class AppComponent implements OnInit {
   private updateConnectionStatus() {
     this.isConnected = !!localStorage.getItem('access_token');
   }
+  isMenuOpen = false;
+  @ViewChild('dropdownMenu') dropdownMenu!: ElementRef;
+
+  // Ferme le menu si on clique en dehors
+  @HostListener('document:click', ['$event'])
+  onClick(event: MouseEvent) {
+    if (!this.dropdownMenu.nativeElement.contains(event.target)) {
+      this.isMenuOpen = false;
+    }
+  }
+
+  toggleMenu(event: Event) {
+    event.stopPropagation();
+    this.isMenuOpen = !this.isMenuOpen;
+}
+closeMenu() {
+  this.isMenuOpen = false;
+}
+
 }
